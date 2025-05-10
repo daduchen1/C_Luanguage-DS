@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 #define Maxsize 50
 
 //定义顺序表
@@ -10,3 +11,21 @@ typedef struct{
 
 //初始化顺序表
 
+bool Initsqlist(Sqlist *L){
+    //把表中元素都初始化成0
+    int i=0;
+    scanf("%d",&L->length);     //输入表现在需要的长度
+    if(L->length<0||L->length>Maxsize){
+        return false;
+    }    
+    for(i;i<L->length;i++){
+        L->data[i]=0;
+    }
+}
+
+int main(){
+    Sqlist list;
+    Initsqlist(&list);
+    printf("%d",list.data[1]);
+    return 0;
+}
